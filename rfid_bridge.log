@@ -1,0 +1,44 @@
+2026-04-27 12:21:13,658 [INFO] ============================================
+2026-04-27 12:21:13,658 [INFO]   Warehouse Fitness — RFID Bridge v1.0
+2026-04-27 12:21:13,658 [INFO]   ESP32 port : COM11
+2026-04-27 12:21:13,659 [INFO]   Supabase   : https://avhdwjuihqgsdwmdfyzo.supabase.co
+2026-04-27 12:21:13,659 [INFO]   Log file   : C:\RFIDBridge\rfid_bridge.log
+2026-04-27 12:21:13,659 [INFO] ============================================
+2026-04-27 12:21:13,659 [WARNING] ESP32 not found on COM11 — retrying in 5s (could not open port 'COM11': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2))
+2026-04-27 12:21:18,670 [WARNING] ESP32 not found on COM11 — retrying in 5s (could not open port 'COM11': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2))
+2026-04-27 12:21:23,671 [WARNING] ESP32 not found on COM11 — retrying in 5s (could not open port 'COM11': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2))
+2026-04-27 12:21:28,671 [WARNING] ESP32 not found on COM11 — retrying in 5s (could not open port 'COM11': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2))
+2026-04-27 12:21:33,938 [INFO] ESP32 connected on COM11
+2026-04-27 12:21:33,938 [INFO] Waiting for card scans...
+
+2026-04-27 12:21:33,946 [INFO] Door API listening on http://localhost:8765
+2026-04-27 12:53:30,814 [INFO] ============================================
+2026-04-27 12:53:30,858 [INFO]   Warehouse Fitness — RFID Bridge v1.0
+2026-04-27 12:53:30,859 [INFO]   ESP32 port : COM11
+2026-04-27 12:53:30,859 [INFO]   Supabase   : https://avhdwjuihqgsdwmdfyzo.supabase.co
+2026-04-27 12:53:30,860 [INFO]   Log file   : C:\RFIDBridge\rfid_bridge.log
+2026-04-27 12:53:30,860 [INFO] ============================================
+2026-04-27 12:53:30,923 [INFO] ESP32 connected on COM11
+2026-04-27 12:53:30,924 [INFO] Waiting for card scans...
+
+2026-04-27 12:53:30,970 [INFO] Door API listening on http://localhost:8765
+2026-04-27 12:55:59,859 [INFO] ============================================
+2026-04-27 12:55:59,860 [INFO]   Warehouse Fitness — RFID Bridge v1.0
+2026-04-27 12:55:59,861 [INFO]   ESP32 port : COM11
+2026-04-27 12:55:59,861 [INFO]   Supabase   : https://avhdwjuihqgsdwmdfyzo.supabase.co
+2026-04-27 12:55:59,861 [INFO]   Log file   : C:\RFIDBridge\rfid_bridge.log
+2026-04-27 12:55:59,862 [INFO] ============================================
+2026-04-27 12:55:59,864 [INFO] ESP32 connected on COM11
+2026-04-27 12:55:59,864 [INFO] Waiting for card scans...
+
+2026-04-27 12:56:00,025 [INFO] Door API listening on http://localhost:8765
+2026-04-27 13:01:37,261 [INFO] ============================================
+2026-04-27 13:01:37,261 [INFO]   Warehouse Fitness — RFID Bridge v1.0
+2026-04-27 13:01:37,261 [INFO]   ESP32 port : COM11
+2026-04-27 13:01:37,262 [INFO]   Supabase   : https://avhdwjuihqgsdwmdfyzo.supabase.co
+2026-04-27 13:01:37,262 [INFO]   Log file   : C:\RFIDBridge\rfid_bridge.log
+2026-04-27 13:01:37,262 [INFO] ============================================
+2026-04-27 13:01:37,265 [INFO] ESP32 connected on COM11
+2026-04-27 13:01:37,265 [INFO] Waiting for card scans...
+
+2026-04-27 13:01:37,272 [INFO] Door API listening on http://localhost:8765
