@@ -9,6 +9,7 @@ import os
 import sys
 import time
 import msvcrt
+from pynput import keyboard
 import threading
 import logging
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -195,7 +196,7 @@ async def lookup_and_log(uid: str):
             if post_res.status_code not in (200, 201):
                 log.warning(f"Supabase log error {post_res.status_code}: {post_res.text}")
 
-            symbol = "✅" if entry["status"] == "granted" else "❌"
+            symbol = "[OK]" if entry["status"] == "granted" else "[FAIL]"
             log.info(f"{symbol} [{entry['status'].upper()}] {entry.get('holder_name') or 'Unknown'} | UID: {uid}")
 
             if entry["status"] == "granted":
@@ -238,27 +239,57 @@ def main():
 
     log.info("Waiting for card scans...\n")
 
-    loop   = asyncio.new_event_loop()
-    buffer = ""
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
 
-    while True:
-        if msvcrt.kbhit():
-            ch = msvcrt.getwch()
-            if ch in ('\r', '\n'):
-                uid = buffer.strip()
+    buffer = ""
+    last_key_time = 0.0
+    MAX_CHAR_INTERVAL = 0.05  # 50ms (0.05s) threshold to filter out normal keyboard typing
+
+    def on_press(key):
+        nonlocal buffer, last_key_time
+        now = time.time()
+
+        try:
+            char = key.char
+        except AttributeError:
+            char = None
+
+        if char is not None:
+            # We want to capture alphanumeric characters (digits/hex UIDs)
+            if char.isalnum():
+                if buffer == "":
+                    buffer = char
+                    last_key_time = now
+                else:
+                    if now - last_key_time < MAX_CHAR_INTERVAL:
+                        buffer += char
+                        last_key_time = now
+                    else:
+                        buffer = char
+                        last_key_time = now
+        elif key == keyboard.Key.enter:
+            if buffer:
+                # Enter must also be pressed rapidly after the last character
+                if now - last_key_time < MAX_CHAR_INTERVAL and len(buffer) >= 4:
+                    uid = buffer.upper()
+                    log.info(f"[SCAN DETECTED] UID: {uid}")
+                    asyncio.run_coroutine_threadsafe(lookup_and_log(uid), loop)
                 buffer = ""
-                if uid:
-                    loop.run_until_complete(lookup_and_log(uid))
-            elif ch == '\x03':   # Ctrl+C
-                log.info("Exiting...")
-                with _ser_lock:
-                    if _ser:
-                        _ser.close()
-                break
-            else:
-                buffer += ch
-        else:
-            time.sleep(0.01)
+
+    listener = keyboard.Listener(on_press=on_press)
+    listener.start()
+
+    try:
+        loop.run_forever()
+    except KeyboardInterrupt:
+        log.info("Exiting...")
+    finally:
+        listener.stop()
+        with _ser_lock:
+            if _ser:
+                _ser.close()
+        loop.close()
 
 if __name__ == "__main__":
     main()

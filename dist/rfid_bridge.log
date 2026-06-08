@@ -1,0 +1,24 @@
+2026-06-08 14:08:16,590 [INFO] ============================================
+2026-06-08 14:08:16,591 [INFO]   Warehouse Fitness — RFID Bridge v1.0
+2026-06-08 14:08:16,591 [INFO]   ESP32 port : COM11
+2026-06-08 14:08:16,592 [INFO]   Supabase   : None
+2026-06-08 14:08:16,592 [INFO]   Log file   : C:\RFIDBridge\dist\rfid_bridge.log
+2026-06-08 14:08:16,592 [INFO] ============================================
+2026-06-08 14:08:16,593 [ERROR] MISSING: SUPABASE_URL or SUPABASE_KEY not set in .env — exiting.
+2026-06-08 14:09:22,311 [INFO] ============================================
+2026-06-08 14:09:22,312 [INFO]   Warehouse Fitness — RFID Bridge v1.0
+2026-06-08 14:09:22,318 [INFO]   ESP32 port : COM3
+2026-06-08 14:09:22,318 [INFO]   Supabase   : https://avhdwjuihqgsdwmdfyzo.supabase.co
+2026-06-08 14:09:22,318 [INFO]   Log file   : C:\RFIDBridge\dist\rfid_bridge.log
+2026-06-08 14:09:22,318 [INFO] ============================================
+2026-06-08 14:09:22,319 [INFO] ESP32 connected on COM3
+2026-06-08 14:09:22,322 [INFO] Waiting for card scans...
+
+2026-06-08 14:09:22,362 [INFO] Door API listening on http://localhost:8765
+2026-06-08 14:09:39,370 [INFO] [SCAN DETECTED] UID: 12345678
+2026-06-08 14:09:39,372 [INFO] [SCAN] UID: 12345678
+2026-06-08 14:09:41,597 [INFO] HTTP Request: GET https://avhdwjuihqgsdwmdfyzo.supabase.co/rest/v1/members?rfid_uid=eq.12345678&select=%2A "HTTP/1.1 200 OK"
+2026-06-08 14:09:41,777 [INFO] HTTP Request: GET https://avhdwjuihqgsdwmdfyzo.supabase.co/rest/v1/coaches?rfid_uid=eq.12345678&select=%2A "HTTP/1.1 200 OK"
+2026-06-08 14:09:41,936 [INFO] HTTP Request: GET https://avhdwjuihqgsdwmdfyzo.supabase.co/rest/v1/staff?rfid_uid=eq.12345678&select=%2A "HTTP/1.1 200 OK"
+2026-06-08 14:09:42,130 [INFO] HTTP Request: POST https://avhdwjuihqgsdwmdfyzo.supabase.co/rest/v1/rfid_access_log "HTTP/1.1 201 Created"
+2026-06-08 14:09:42,135 [INFO] [FAIL] [UNKNOWN] Unknown | UID: 12345678
