@@ -57,7 +57,7 @@ echo  [INFO] Working directory: %CD%
 :: This avoids the System32 PATH issue entirely
 python -m PyInstaller ^
     --onefile ^
-    --console ^
+    --noconsole ^
     --name "rfid_bridge" ^
     --hidden-import serial ^
     --hidden-import serial.tools ^
